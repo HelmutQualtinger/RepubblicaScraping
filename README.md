@@ -18,7 +18,15 @@ Utilizza le librerie pypi `requests`, `beautifulsoup` e `hashlib`. La funzione d
 
 ## Utilizzo
 
-Esegui
+Esegui 
+```python3 RepublicaScraping.py```
+
+riceverei solo gli articoli nuovi. Se desideri tutti gli articoli attualmente presenti, prima dell'invocazione del programma,  cancella la cartella dei valori hash degli articoli.
+```rm last_run_hash.json```
+
+## Licenza
+
+Nessuna restrizione di uso è riutilizzo, nessuna garanzia o responsabilità da parte del autore. L'utilizzo responsabile ė responsabilità esclusiva del utente.
 
 # Repubblica scraping
 

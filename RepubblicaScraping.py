@@ -76,10 +76,7 @@ def analyse_webpage(webpage, hash_set):
 
     Returns:
     A tuple containing the following information:
-    - extracted_paragraphs: Number of paragraphs extracted.
-    - extracted_header: Number of headers extracted.
-    - new_paragraphs: Number of new paragraphs (not previously extracted).
-    - new_title: Number of new headers (not previously extracted).
+    - extracted_paragraphs: titles and links of the extracted titles.
     - hash_set: Updated set of hash values.
     """
 
@@ -114,8 +111,7 @@ def analyse_webpage(webpage, hash_set):
 def main():
     hash_set = read_persistent_hash_set()
     parsed_webpage = read_webpage(url)
-    found_articles, hash_set = analyse_webpage(
-        parsed_webpage, hash_set)
+    found_articles, hash_set = analyse_webpage( parsed_webpage, hash_set)
     with open("last_run_hash.json", "w") as f:
         json.dump(list(hash_set), f)
     print( time_now())
