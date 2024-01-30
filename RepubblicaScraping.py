@@ -8,6 +8,9 @@ import hashlib
 import time
 import datetime
 import locale
+import webbrowser
+import urllib.parse
+import pathlib as path
 
 
 def time_now():
@@ -113,12 +116,28 @@ def main():
     parsed_webpage = read_webpage(url)
     found_articles, hash_set = analyse_webpage(
         parsed_webpage, hash_set)
+    with open("last_run_hash.json", "w") as f:
+        json.dump(list(hash_set), f)
     print( time_now())
     for i,(article, link) in enumerate(found_articles):
         print(f"{i:>4}. {article} {link}")
+ 
+ 
+    file_path = "repubblica.html"
 
-    with open("last_run_hash.json", "w") as f:
-        json.dump(list(hash_set), f)
+       
+    with open(file_path, "w") as f:
+        f.write("<html>\n<head>\n<title>Articoli Nuovi della Repubblica</title>\n</head>\n<body>\n")
+        f.write(f"<h1>Articoli Nuovi della Repubblica</h1>\n")
+        f.write(f"<h2>{time_now()}</h2>\n<ol>")
+        for i, (article, link) in enumerate(found_articles):
+            f.write(f"<li><a href='{link}'>{article}</a></li>\n")
+        f.write(",/<ol></body>\n</html>")
+
+
+     # Open the file in a browser
+    uri = path.Path(file_path).absolute()
+    webbrowser.get().open(uri.as_uri())
 
 if __name__ == "__main__":
     main()
