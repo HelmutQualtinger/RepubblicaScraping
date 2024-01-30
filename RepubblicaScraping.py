@@ -98,7 +98,6 @@ def analyse_webpage(webpage, hash_set):
             hash_value = hash_object.hexdigest()
             link_url = header.find("a").get("href")
             if not hash_value in hash_set:
-
                 #                print( t)
                 found_articles.append((t, link_url))
 #                print("Link: ", link_url)
