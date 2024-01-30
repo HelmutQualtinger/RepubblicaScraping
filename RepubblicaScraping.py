@@ -1,13 +1,11 @@
+#!/usr/bin/env python3
 import requests
 from bs4 import BeautifulSoup
 import re
 import json
+# Funzione per creare l'hash di una stringa e aggiungerla a un insieme
 import hashlib
 import time
-
-# Funzione per creare l'hash di una stringa e aggiungerla a un insieme
-
-import json
 import datetime
 import locale
 
@@ -115,12 +113,12 @@ def main():
     parsed_webpage = read_webpage(url)
     found_articles, hash_set = analyse_webpage(
         parsed_webpage, hash_set)
-    timestring = time_now()
-    for article, link in found_articles:
-        print(timestring, " - ", article)
+    print( time_now())
+    for i,(article, link) in enumerate(found_articles):
+        print(f"{i:>4}. {article} {link}")
 
     with open("last_run_hash.json", "w") as f:
         json.dump(list(hash_set), f)
 
-
-main()
+if __name__ == "__main__":
+    main()
