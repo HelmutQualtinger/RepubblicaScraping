@@ -21,7 +21,7 @@ Utilizza le librerie pypi `requests`, `beautifulsoup` e `hashlib`. La funzione d
 Esegui 
 ```python3 RepublicaScraping.py```
 
-riceverei solo gli articoli nuovi. Se desideri tutti gli articoli attualmente presenti, prima dell'invocazione del programma,  cancella la cartella dei valori hash degli articoli.
+riceverai solo gli articoli nuovi. Se desideri tutti gli articoli attualmente presenti, prima dell'invocazione del programma,  cancella la cartella dei valori hash degli articoli.
 ```rm last_run_hash.json```
 
 ## Licenza
