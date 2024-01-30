@@ -45,7 +45,7 @@ run
 
 ```python3 RepublicaScraping.py```
 
-The first time you'll get all article with an <H2> tag. Subsequently only new article headings. 
+The first time you'll get all article with an < H2 > tag. Subsequently only new article headings. 
 The hashes of the articles already obtained in previous invocation are remembered in last_run.json and no longer shown.
 
 If you want to get all harvested headings 
